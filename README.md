@@ -14,16 +14,17 @@ A simple script for Linux that can help you easily deploy projects from git to T
     ```
     ssh-keygen -t ed25519
     ```
-2. Install **git** package
+2. Add a **deploy key** to your repository (more info [here](https://docs.github.com/en/developers/overview/managing-deploy-keys#deploy-keys))
+3. Install **git** package
     ```
     apt-get install git
     ```
-3. Install **Maven** or **Gradle**
+4. Install **Maven** or **Gradle**
     ```
     apt-get install maven
     ```
-4. Download `deploy.sh` to your Linux server
-5. Locate `deploy.sh` and open with text editor to configure the script
+5. Download `deploy.sh` to your Linux server
+6. Locate `deploy.sh` and open it with any text editor to configure the script
 
 ## Settings
 You need to configure some variables that are located at the beginning of `deploy.sh`
