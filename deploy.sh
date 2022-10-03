@@ -123,7 +123,7 @@ function build_image() {
 # Deploy build to the Tomcat
 function deploy_build() {
 	current_task "Deploying image...\t\t\t\t"
-	cp -rf $CLONED_DIR/$IMAGE_PATH $DEPLOY_PATH &>> $LOG_FILE
+	mv -f $CLONED_DIR/$IMAGE_PATH $DEPLOY_PATH &>> $LOG_FILE
 	check_error $? "Image has been deployed" "deploying image"
 }
 
