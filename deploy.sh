@@ -22,7 +22,7 @@ DEPLOY_PATH="/opt/tomcat/webapps/ROOT.war"                      # Tomcat image p
 #
 # Script variables (DO NOT TOUCH!)
 #
-CURRENT_DIR=$(pwd -P)
+CURRENT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 TEMP_DIR="${CURRENT_DIR}/.tmp"
 CLONED_DIR="${TEMP_DIR}/"
 LOG_FILE="${CURRENT_DIR}/deploy.log"
@@ -105,7 +105,7 @@ function replace_config() {
 	CLONED_DIR+=$(ls -d */ | head -n 1)
 	cd $CLONED_DIR &>> $LOG_FILE
 	
-	if [ ! -z $ORIGINAL_CONFIG_DIR ] && [ ! -z $REPLACE_CONFIG_DIR ]; then
+	if [ -n "$ORIGINAL_CONFIG_DIR" ] && [ -n "$REPLACE_CONFIG_DIR" ]; then
 		current_task "Replacing configuration...\t\t\t"
 		cp -a $ORIGINAL_CONFIG_DIR $CLONED_DIR/$REPLACE_CONFIG_DIR &>> $LOG_FILE
 		check_error $? "Configuration has been replaced" "replacing configuration"
